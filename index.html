@@ -1,1989 +1,699 @@
-
+<!DOCTYPE html>
 <html lang="ar" dir="rtl">
-
 <head>
-
-<meta charset="UTF-8">
-
-<meta name="viewport"
-content="width=device-width, initial-scale=1.0">
-
-<title>Hadeer Legal Group | مكتب هدير للاستشارات القانونية</title>
-
-<meta name="description" content="مكتب هدير للاستشارات القانونية والمحاماة. نقدم خدمات واستشارات قانونية متخصصة وحلولًا قانونية مناسبة لعملائنا.">
-
-
-<style>
-
-/* =====================================
-   الإعدادات العامة
-===================================== */
-
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-html {
-    scroll-behavior: smooth;
-}
-
-body {
-
-    font-family:
-    Tahoma,
-    Arial,
-    sans-serif;
-
-    background: #050505;
-
-    color: white;
-
-    overflow-x: hidden;
-}
-
-
-/* =====================================
-   الصفحة الافتتاحية
-===================================== */
-
-#intro {
-
-    position: fixed;
-
-    inset: 0;
-
-    z-index: 9999;
-
-    display: flex;
-
-    justify-content: center;
-
-    align-items: center;
-
-    text-align: center;
-
-    background:
-
-    linear-gradient(
-        rgba(0,0,0,0.78),
-        rgba(0,0,0,0.95)
-    ),
-
-    url("law-background.jpg");
-
-    background-size: cover;
-
-    background-position: center;
-
-    transition:
-    opacity 1s ease;
-}
-
-
-.intro-content {
-
-    width: 90%;
-
-    max-width: 600px;
-
-    padding: 30px;
-
-    animation:
-    introAppear 1.5s ease;
-
-}
-
-
-/* =====================================
-   اللوجو
-===================================== */
-
-.logo-circle {
-
-    width: 145px;
-
-    height: 145px;
-
-    margin:
-
-    0 auto 25px;
-
-    border:
-
-    2px solid #d4af37;
-
-    border-radius: 50%;
-
-    display: flex;
-
-    justify-content: center;
-
-    align-items: center;
-
-    font-size: 60px;
-
-    color: #d4af37;
-
-    background:
-
-    rgba(212,175,55,0.05);
-
-    box-shadow:
-
-    0 0 15px
-    rgba(212,175,55,0.3),
-
-    inset 0 0 20px
-    rgba(212,175,55,0.08);
-
-}
-
-
-.intro-content h1 {
-
-    color: #d4af37;
-
-    font-size: 42px;
-
-    margin-bottom: 18px;
-
-    letter-spacing: 1px;
-
-}
-
-
-.intro-content h2 {
-
-    color: #eee;
-
-    font-size: 21px;
-
-    line-height: 1.8;
-
-    font-weight: normal;
-
-    margin-bottom: 35px;
-
-}
-
-
-/* =====================================
-   زر ابدأ
-===================================== */
-
-.start-btn {
-
-    padding:
-
-    15px 60px;
-
-    background:
-
-    linear-gradient(
-        135deg,
-        #d4af37,
-        #f0d875
-    );
-
-    color: #000;
-
-    border: none;
-
-    border-radius: 40px;
-
-    font-size: 19px;
-
-    font-weight: bold;
-
-    cursor: pointer;
-
-    box-shadow:
-
-    0 8px 25px
-    rgba(212,175,55,0.2);
-
-    transition:
-    0.3s;
-
-}
-
-
-.start-btn:hover {
-
-    transform:
-    translateY(-4px);
-
-    box-shadow:
-
-    0 12px 30px
-    rgba(212,175,55,0.35);
-
-}
-
-
-/* =====================================
-   الموقع الرئيسي
-===================================== */
-
-#mainPage {
-
-    display: none;
-
-    min-height: 100vh;
-
-    background:
-
-    linear-gradient(
-        rgba(0,0,0,0.84),
-        rgba(0,0,0,0.96)
-    ),
-
-    url("law-background.jpg");
-
-    background-size: cover;
-
-    background-position: center;
-
-    background-attachment: fixed;
-
-    animation:
-    pageAppear 1s ease;
-
-}
-
-
-/* =====================================
-   شريط الموقع
-===================================== */
-
-.navbar {
-
-    position: fixed;
-
-    top: 0;
-
-    right: 0;
-
-    width: 100%;
-
-    height: 68px;
-
-    padding:
-
-    0 6%;
-
-    background:
-
-    rgba(5,5,5,0.96);
-
-    backdrop-filter:
-
-    blur(10px);
-
-    border-bottom:
-
-    1px solid
-    rgba(212,175,55,0.5);
-
-    display: flex;
-
-    justify-content:
-
-    space-between;
-
-    align-items: center;
-
-    z-index: 1000;
-
-}
-
-
-.nav-logo {
-
-    color: #d4af37;
-
-    font-size: 19px;
-
-    font-weight: bold;
-
-}
-
-
-.pages-btn {
-
-    background:
-
-    rgba(212,175,55,0.08);
-
-    color: white;
-
-    border:
-
-    1px solid #d4af37;
-
-    padding:
-
-    9px 18px;
-
-    border-radius:
-
-    25px;
-
-    cursor: pointer;
-
-    font-size: 14px;
-
-    transition:
-    0.3s;
-
-}
-
-
-.pages-btn:hover {
-
-    background:
-
-    #d4af37;
-
-    color: black;
-
-}
-
-
-/* =====================================
-   قائمة الصفحات
-===================================== */
-
-.pages-menu {
-
-    position: fixed;
-
-    top: 68px;
-
-    right: -320px;
-
-    width: 290px;
-
-    max-width: 85%;
-
-    height: auto;
-
-    background:
-
-    rgba(12,12,12,0.98);
-
-    backdrop-filter:
-
-    blur(15px);
-
-    border-left:
-
-    1px solid #d4af37;
-
-    border-bottom:
-
-    1px solid #d4af37;
-
-    border-radius:
-
-    0 0 0 20px;
-
-    padding: 15px;
-
-    z-index: 999;
-
-    transition:
-    0.4s;
-
-    box-shadow:
-
-    -10px 15px 40px
-    rgba(0,0,0,0.5);
-
-}
-
-
-.pages-menu.active {
-
-    right: 0;
-
-}
-
-
-.pages-menu a {
-
-    display: block;
-
-    color: #eee;
-
-    text-decoration: none;
-
-    padding: 16px;
-
-    margin-bottom: 5px;
-
-    border-radius: 10px;
-
-    transition:
-    0.3s;
-
-}
-
-
-.pages-menu a:hover {
-
-    background:
-
-    rgba(212,175,55,0.1);
-
-    color: #d4af37;
-
-}
-
-
-/* =====================================
-   الصفحة الرئيسية
-===================================== */
-
-.hero {
-
-    min-height: 100vh;
-
-    display: flex;
-
-    justify-content: center;
-
-    align-items: center;
-
-    text-align: center;
-
-    padding:
-
-    120px 20px 70px;
-
-}
-
-
-.hero-content {
-
-    width: 100%;
-
-    max-width: 850px;
-
-}
-
-
-.hero h1 {
-
-    color: #d4af37;
-
-    font-size: 48px;
-
-    margin-bottom: 20px;
-
-}
-
-
-.hero h2 {
-
-    font-size: 27px;
-
-    line-height: 1.7;
-
-    margin-bottom: 25px;
-
-}
-
-
-.hero p {
-
-    color: #ddd;
-
-    font-size: 18px;
-
-    line-height: 2;
-
-}
-
-
-.hero-btn {
-
-    display: inline-block;
-
-    margin-top: 30px;
-
-    padding:
-
-    15px 38px;
-
-    background:
-
-    linear-gradient(
-        135deg,
-        #d4af37,
-        #f0d875
-    );
-
-    color: #000;
-
-    text-decoration: none;
-
-    border-radius: 35px;
-
-    font-weight: bold;
-
-    box-shadow:
-
-    0 8px 25px
-    rgba(212,175,55,0.18);
-
-    transition:
-    0.3s;
-
-}
-
-
-.hero-btn:hover {
-
-    transform:
-    translateY(-5px);
-
-}
-
-
-/* =====================================
-   الأقسام
-===================================== */
-
-.content-section {
-
-    padding:
-
-    90px 8%;
-
-    text-align: center;
-
-    border-top:
-
-    1px solid
-    rgba(212,175,55,0.15);
-
-}
-
-
-.section-title {
-
-    color: #d4af37;
-
-    font-size: 34px;
-
-    margin-bottom: 40px;
-
-    position: relative;
-
-}
-
-
-.section-title::after {
-
-    content: "";
-
-    display: block;
-
-    width: 55px;
-
-    height: 2px;
-
-    background:
-
-    #d4af37;
-
-    margin:
-
-    15px auto 0;
-
-}
-
-
-/* =====================================
-   من نحن
-===================================== */
-
-.about-text {
-
-    max-width: 850px;
-
-    margin: auto;
-
-    color: #ddd;
-
-    font-size: 18px;
-
-    line-height: 2.2;
-
-}
-
-
-/* =====================================
-   الخدمات
-===================================== */
-
-.services {
-
-    display: grid;
-
-    grid-template-columns:
-
-    repeat(
-        auto-fit,
-        minmax(220px,1fr)
-    );
-
-    gap: 22px;
-
-}
-
-
-.card {
-
-    background:
-
-    linear-gradient(
-        145deg,
-        rgba(25,25,25,0.95),
-        rgba(10,10,10,0.95)
-    );
-
-    border:
-
-    1px solid
-    rgba(212,175,55,0.2);
-
-    padding: 30px 22px;
-
-    border-radius: 18px;
-
-    transition:
-    0.35s;
-
-    box-shadow:
-
-    0 10px 30px
-    rgba(0,0,0,0.3);
-
-}
-
-
-.card:hover {
-
-    transform:
-    translateY(-8px);
-
-    border-color:
-
-    #d4af37;
-
-}
-
-
-.card .icon {
-
-    font-size: 42px;
-
-    margin-bottom: 20px;
-
-}
-
-
-.card h3 {
-
-    color: #d4af37;
-
-    margin-bottom: 15px;
-
-    font-size: 20px;
-
-}
-
-
-.card p {
-
-    color: #ccc;
-
-    line-height: 1.9;
-
-}
-
-
-/* =====================================
-   نموذج الاستشارة
-===================================== */
-
-.contact-form {
-
-    max-width: 650px;
-
-    margin: auto;
-
-}
-
-
-.contact-form input,
-.contact-form textarea {
-
-    width: 100%;
-
-    margin-bottom: 15px;
-
-    padding: 16px;
-
-    background:
-
-    rgba(15,15,15,0.95);
-
-    color: white;
-
-    border:
-
-    1px solid #333;
-
-    border-radius:
-
-    12px;
-
-    outline: none;
-
-    font-size: 16px;
-
-    transition:
-    0.3s;
-
-}
-
-
-.contact-form input:focus,
-.contact-form textarea:focus {
-
-    border-color:
-
-    #d4af37;
-
-    box-shadow:
-
-    0 0 10px
-    rgba(212,175,55,0.1);
-
-}
-
-
-.contact-form textarea {
-
-    height: 150px;
-
-    resize: none;
-
-}
-
-
-.submit-btn {
-
-    padding:
-
-    15px 35px;
-
-    background:
-
-    linear-gradient(
-        135deg,
-        #d4af37,
-        #f0d875
-    );
-
-    border: none;
-
-    border-radius:
-
-    30px;
-
-    cursor: pointer;
-
-    font-weight: bold;
-
-    font-size: 16px;
-
-    transition:
-    0.3s;
-
-}
-
-
-.submit-btn:hover {
-
-    transform:
-    translateY(-3px);
-
-}
-
-
-/* =====================================
-   موقع المكتب
-===================================== */
-
-.location-box {
-
-    max-width: 750px;
-
-    margin: auto;
-
-    background:
-
-    rgba(15,15,15,0.9);
-
-    padding: 30px;
-
-    border-radius: 18px;
-
-    border:
-
-    1px solid
-    rgba(212,175,55,0.25);
-
-}
-
-
-.location-box p {
-
-    color: #ddd;
-
-    font-size: 17px;
-
-    line-height: 2;
-
-    margin-bottom: 15px;
-
-}
-
-
-/* =====================================
-   زر الخريطة
-===================================== */
-
-.map-btn {
-
-    display: inline-block;
-
-    margin-top: 15px;
-
-    padding:
-
-    14px 28px;
-
-    background:
-
-    linear-gradient(
-        135deg,
-        #d4af37,
-        #f0d875
-    );
-
-    color: #000;
-
-    text-decoration: none;
-
-    border-radius:
-
-    30px;
-
-    font-weight: bold;
-
-    transition:
-    0.3s;
-
-}
-
-
-.map-btn:hover {
-
-    transform:
-    translateY(-4px);
-
-}
-
-
-/* =====================================
-   التواصل
-===================================== */
-
-.social-links {
-
-    display: flex;
-
-    justify-content: center;
-
-    flex-wrap: wrap;
-
-    gap: 12px;
-
-}
-
-
-.social-links a {
-
-    text-decoration: none;
-
-    color: white;
-
-    border:
-
-    1px solid #d4af37;
-
-    padding:
-
-    12px 22px;
-
-    border-radius:
-
-    30px;
-
-    transition:
-    0.3s;
-
-}
-
-
-.social-links a:hover {
-
-    background:
-
-    #d4af37;
-
-    color: black;
-
-    transform:
-    translateY(-4px);
-
-}
-
-
-/* =====================================
-   زر الاتصال
-===================================== */
-
-.call-btn {
-
-    background:
-
-    #d4af37 !important;
-
-    color:
-
-    #000 !important;
-
-    font-weight:
-
-    bold;
-
-}
-
-
-/* =====================================
-   الفوتر
-===================================== */
-
-footer {
-
-    text-align: center;
-
-    padding: 30px;
-
-    background:
-
-    #030303;
-
-    border-top:
-
-    1px solid #222;
-
-    color: #888;
-
-}
-
-
-footer span {
-
-    color: #d4af37;
-
-}
-
-
-/* =====================================
-   الحركات
-===================================== */
-
-@keyframes introAppear {
-
-    from {
-
-        opacity: 0;
-
-        transform:
-        scale(0.8);
-
-    }
-
-    to {
-
-        opacity: 1;
-
-        transform:
-        scale(1);
-
-    }
-
-}
-
-
-@keyframes pageAppear {
-
-    from {
-
-        opacity: 0;
-
-    }
-
-    to {
-
-        opacity: 1;
-
-    }
-
-}
-
-
-/* =====================================
-   تصميم الموبايل الفخم
-===================================== */
-
-@media (max-width: 600px) {
-
-
-    body {
-
-        background:
-        #050505;
-
-    }
-
-
-    .navbar {
-
-        height: 64px;
-
-        padding:
-        0 15px;
-
-    }
-
-
-    .nav-logo {
-
-        font-size: 14px;
-
-    }
-
-
-    .pages-btn {
-
-        padding:
-
-        8px 14px;
-
-        font-size: 13px;
-
-    }
-
-
-    .pages-menu {
-
-        top: 64px;
-
-        width: 270px;
-
-        padding: 12px;
-
-    }
-
-
-    .intro-content {
-
-        width: 95%;
-
-        padding: 20px;
-
-    }
-
-
-    .logo-circle {
-
-        width: 120px;
-
-        height: 120px;
-
-        font-size: 48px;
-
-        margin-bottom: 20px;
-
-    }
-
-
-    .intro-content h1 {
-
-        font-size: 28px;
-
-        line-height: 1.4;
-
-    }
-
-
-    .intro-content h2 {
-
-        font-size: 16px;
-
-        line-height: 1.8;
-
-    }
-
-
-    .start-btn {
-
-        width: 80%;
-
-        padding:
-
-        14px 20px;
-
-    }
-
-
-    .hero {
-
-        min-height: 100svh;
-
-        padding:
-
-        100px 20px 50px;
-
-    }
-
-
-    .hero h1 {
-
-        font-size: 30px;
-
-        line-height: 1.4;
-
-    }
-
-
-    .hero h2 {
-
-        font-size: 19px;
-
-        line-height: 1.8;
-
-    }
-
-
-    .hero p {
-
-        font-size: 16px;
-
-        line-height: 2;
-
-    }
-
-
-    .hero-btn {
-
-        width: 100%;
-
-        max-width: 330px;
-
-        padding:
-
-        15px 20px;
-
-    }
-
-
-    .content-section {
-
-        padding:
-
-        70px 18px;
-
-    }
-
-
-    .section-title {
-
-        font-size: 28px;
-
-    }
-
-
-    .about-text {
-
-        font-size: 16px;
-
-        line-height: 2.1;
-
-    }
-
-
-    .services {
-
-        grid-template-columns:
-
-        1fr;
-
-        gap: 16px;
-
-    }
-
-
-    .card {
-
-        padding: 25px 20px;
-
-        border-radius: 16px;
-
-    }
-
-
-    .card .icon {
-
-        font-size: 38px;
-
-    }
-
-
-    .location-box {
-
-        padding: 22px 18px;
-
-    }
-
-
-    .location-box p {
-
-        font-size: 15px;
-
-        line-height: 2;
-
-    }
-
-
-    .map-btn {
-
-        width: 100%;
-
-        padding:
-
-        14px 15px;
-
-    }
-
-
-    .social-links {
-
-        display: grid;
-
-        grid-template-columns:
-
-        1fr 1fr;
-
-        gap: 10px;
-
-    }
-
-
-    .social-links a {
-
-        padding:
-
-        12px 8px;
-
-        font-size: 14px;
-
-    }
-
-
-    .contact-form input,
-    .contact-form textarea {
-
-        font-size: 15px;
-
-        padding: 15px;
-
-    }
-
-
-    .submit-btn {
-
-        width: 100%;
-
-    }
-
-
-    footer {
-
-        font-size: 13px;
-
-        padding: 25px 15px;
-
-    }
-
-}
-
-</style>
-
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hadeer Legal Group | مكتب هدير للاستشارات القانونية</title>
+    <meta name="description" content="مكتب هدير للاستشارات القانونية والمحاماة. نقدم خدمات واستشارات قانونية متخصصة وحلولًا قانونية مناسبة لعملائنا.">
+    
+    <style>
+        /* =====================================  
+           الإعدادات العامة  
+        ===================================== */  
+        * {  
+            margin: 0;  
+            padding: 0;  
+            box-sizing: border-box;  
+        }  
+          
+        html {  
+            scroll-behavior: smooth;  
+        }  
+          
+        body {  
+            font-family: Tahoma, Arial, sans-serif;  
+            background: #050505;  
+            color: white;  
+            overflow-x: hidden;  
+        }  
+          
+        /* =====================================  
+           الصفحة الافتتاحية  
+        ===================================== */  
+        #intro {  
+            position: fixed;  
+            inset: 0;  
+            z-index: 9999;  
+            display: flex;  
+            justify-content: center;  
+            align-items: center;  
+            text-align: center;  
+            background: linear-gradient(rgba(0,0,0,0.78), rgba(0,0,0,0.95)), url("law-background.jpg");  
+            background-size: cover;  
+            background-position: center;  
+            transition: opacity 1s ease;  
+        }  
+          
+        .intro-content {  
+            width: 90%;  
+            max-width: 600px;  
+            padding: 30px;  
+            animation: introAppear 1.5s ease;  
+        }  
+          
+        .logo-circle {  
+            width: 145px;  
+            height: 145px;  
+            margin: 0 auto 25px;  
+            border: 2px solid #d4af37;  
+            border-radius: 50%;  
+            display: flex;  
+            justify-content: center;  
+            align-items: center;  
+            font-size: 60px;  
+            color: #d4af37;  
+            background: rgba(212,175,55,0.05);  
+            box-shadow: 0 0 15px rgba(212,175,55,0.3), inset 0 0 20px rgba(212,175,55,0.08);  
+        }  
+          
+        .intro-content h1 {  
+            color: #d4af37;  
+            font-size: 42px;  
+            margin-bottom: 18px;  
+            letter-spacing: 1px;  
+        }  
+          
+        .intro-content h2 {  
+            color: #eee;  
+            font-size: 21px;  
+            line-height: 1.8;  
+            font-weight: normal;  
+            margin-bottom: 35px;  
+        }  
+          
+        .start-btn {  
+            padding: 15px 60px;  
+            background: linear-gradient(135deg, #d4af37, #f0d875);  
+            color: #000;  
+            border: none;  
+            border-radius: 40px;  
+            font-size: 19px;  
+            font-weight: bold;  
+            cursor: pointer;  
+            box-shadow: 0 8px 25px rgba(212,175,55,0.2);  
+            transition: 0.3s;  
+        }  
+          
+        .start-btn:hover {  
+            transform: translateY(-4px);  
+            box-shadow: 0 12px 30px rgba(212,175,55,0.35);  
+        }  
+          
+        /* =====================================  
+           الموقع الرئيسي  
+        ===================================== */  
+        #mainPage {  
+            display: none;  
+            min-height: 100vh;  
+            background: linear-gradient(rgba(0,0,0,0.84), rgba(0,0,0,0.96)), url("law-background.jpg");  
+            background-size: cover;  
+            background-position: center;  
+            background-attachment: fixed;  
+            animation: pageAppear 1s ease;  
+        }  
+          
+        /* =====================================  
+           شريط الموقع  
+        ===================================== */  
+        .navbar {  
+            position: fixed;  
+            top: 0;  
+            right: 0;  
+            width: 100%;  
+            height: 68px;  
+            padding: 0 6%;  
+            background: rgba(5,5,5,0.96);  
+            backdrop-filter: blur(10px);  
+            border-bottom: 1px solid rgba(212,175,55,0.5);  
+            display: flex;  
+            justify-content: space-between;  
+            align-items: center;  
+            z-index: 1000;  
+        }  
+          
+        .nav-logo {  
+            color: #d4af37;  
+            font-size: 19px;  
+            font-weight: bold;  
+        }  
+          
+        .pages-btn {  
+            background: rgba(212,175,55,0.08);  
+            color: white;  
+            border: 1px solid #d4af37;  
+            padding: 9px 18px;  
+            border-radius: 25px;  
+            cursor: pointer;  
+            font-size: 14px;  
+            transition: 0.3s;  
+        }  
+          
+        .pages-btn:hover {  
+            background: #d4af37;  
+            color: black;  
+        }  
+          
+        /* =====================================  
+           قائمة الصفحات  
+        ===================================== */  
+        .pages-menu {  
+            position: fixed;  
+            top: 68px;  
+            right: -320px;  
+            width: 290px;  
+            max-width: 85%;  
+            height: auto;  
+            background: rgba(12,12,12,0.98);  
+            backdrop-filter: blur(15px);  
+            border-left: 1px solid #d4af37;  
+            border-bottom: 1px solid #d4af37;  
+            border-radius: 0 0 0 20px;  
+            padding: 15px;  
+            z-index: 999;  
+            transition: 0.4s;  
+            box-shadow: -10px 15px 40px rgba(0,0,0,0.5);  
+        }  
+          
+        .pages-menu.active {  
+            right: 0;  
+        }  
+          
+        .pages-menu a {  
+            display: block;  
+            color: #eee;  
+            text-decoration: none;  
+            padding: 16px;  
+            margin-bottom: 5px;  
+            border-radius: 10px;  
+            transition: 0.3s;  
+        }  
+          
+        .pages-menu a:hover {  
+            background: rgba(212,175,55,0.1);  
+            color: #d4af37;  
+        }  
+          
+        /* =====================================  
+           الصفحة الرئيسية (Hero)
+        ===================================== */  
+        .hero {  
+            min-height: 100vh;  
+            display: flex;  
+            justify-content: center;  
+            align-items: center;  
+            text-align: center;  
+            padding: 120px 20px 70px;  
+        }  
+          
+        .hero-content {  
+            width: 100%;  
+            max-width: 850px;  
+        }  
+          
+        .hero h1 {  
+            color: #d4af37;  
+            font-size: 48px;  
+            margin-bottom: 20px;  
+        }  
+          
+        .hero h2 {  
+            font-size: 27px;  
+            line-height: 1.7;  
+            margin-bottom: 25px;  
+        }  
+          
+        .hero p {  
+            color: #ddd;  
+            font-size: 18px;  
+            line-height: 2;  
+        }  
+          
+        .hero-btn {  
+            display: inline-block;  
+            margin-top: 30px;  
+            padding: 15px 38px;  
+            background: linear-gradient(135deg, #d4af37, #f0d875);  
+            color: #000;  
+            text-decoration: none;  
+            border-radius: 35px;  
+            font-weight: bold;  
+            box-shadow: 0 8px 25px rgba(212,175,55,0.18);  
+            transition: 0.3s;  
+        }  
+          
+        .hero-btn:hover {  
+            transform: translateY(-5px);  
+        }  
+          
+        /* =====================================  
+           الأقسام  
+        ===================================== */  
+        .content-section {  
+            padding: 90px 8%;  
+            text-align: center;  
+            border-top: 1px solid rgba(212,175,55,0.15);  
+        }  
+          
+        .section-title {  
+            color: #d4af37;  
+            font-size: 34px;  
+            margin-bottom: 40px;  
+            position: relative;  
+        }  
+          
+        .section-title::after {  
+            content: "";  
+            display: block;  
+            width: 55px;  
+            height: 2px;  
+            background: #d4af37;  
+            margin: 15px auto 0;  
+        }  
+          
+        /* =====================================  
+           من نحن مع صورة الشخصية  
+        ===================================== */  
+        .about-profile {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 25px;
+            max-width: 850px;
+            margin: auto;
+        }
+
+        .profile-img-box {
+            width: 220px;
+            height: 220px;
+            border-radius: 50%;
+            border: 3px solid #d4af37;
+            overflow: hidden;
+            box-shadow: 0 0 25px rgba(212, 175, 55, 0.35);
+            transition: transform 0.3s ease;
+        }
+
+        .profile-img-box:hover {
+            transform: scale(1.05);
+        }
+
+        .profile-img-box img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .about-text {  
+            color: #ddd;  
+            font-size: 18px;  
+            line-height: 2.2;  
+        }  
+          
+        /* =====================================  
+           الخدمات  
+        ===================================== */  
+        .services {  
+            display: grid;  
+            grid-template-columns: repeat(auto-fit, minmax(220px,1fr));  
+            gap: 22px;  
+        }  
+          
+        .card {  
+            background: linear-gradient(145deg, rgba(25,25,25,0.95), rgba(10,10,10,0.95));  
+            border: 1px solid rgba(212,175,55,0.2);  
+            padding: 30px 22px;  
+            border-radius: 18px;  
+            transition: 0.35s;  
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);  
+        }  
+          
+        .card:hover {  
+            transform: translateY(-8px);  
+            border-color: #d4af37;  
+        }  
+          
+        .card .icon {  
+            font-size: 42px;  
+            margin-bottom: 20px;  
+        }  
+          
+        .card h3 {  
+            color: #d4af37;  
+            margin-bottom: 15px;  
+            font-size: 20px;  
+        }  
+          
+        .card p {  
+            color: #ccc;  
+            line-height: 1.9;  
+        }  
+          
+        /* =====================================  
+           نموذج الاستشارة  
+        ===================================== */  
+        .contact-form {  
+            max-width: 650px;  
+            margin: auto;  
+        }  
+          
+        .contact-form input,  
+        .contact-form textarea {  
+            width: 100%;  
+            margin-bottom: 15px;  
+            padding: 16px;  
+            background: rgba(15,15,15,0.95);  
+            color: white;  
+            border: 1px solid #333;  
+            border-radius: 12px;  
+            outline: none;  
+            font-size: 16px;  
+            transition: 0.3s;  
+        }  
+          
+        .contact-form input:focus,  
+        .contact-form textarea:focus {  
+            border-color: #d4af37;  
+            box-shadow: 0 0 10px rgba(212,175,55,0.1);  
+        }  
+          
+        .contact-form textarea {  
+            height: 150px;  
+            resize: none;  
+        }  
+          
+        .submit-btn {  
+            padding: 15px 35px;  
+            background: linear-gradient(135deg, #d4af37, #f0d875);  
+            border: none;  
+            border-radius: 30px;  
+            cursor: pointer;  
+            font-weight: bold;  
+            font-size: 16px;  
+            transition: 0.3s;  
+        }  
+          
+        .submit-btn:hover {  
+            transform: translateY(-3px);  
+        }  
+          
+        /* =====================================  
+           موقع المكتب  
+        ===================================== */  
+        .location-box {  
+            max-width: 750px;  
+            margin: auto;  
+            background: rgba(15,15,15,0.9);  
+            padding: 30px;  
+            border-radius: 18px;  
+            border: 1px solid rgba(212,175,55,0.25);  
+        }  
+          
+        .location-box p {  
+            color: #ddd;  
+            font-size: 17px;  
+            line-height: 2;  
+            margin-bottom: 15px;  
+        }  
+          
+        .map-btn {  
+            display: inline-block;  
+            margin-top: 15px;  
+            padding: 14px 28px;  
+            background: linear-gradient(135deg, #d4af37, #f0d875);  
+            color: #000;  
+            text-decoration: none;  
+            border-radius: 30px;  
+            font-weight: bold;  
+            transition: 0.3s;  
+        }  
+          
+        .map-btn:hover {  
+            transform: translateY(-4px);  
+        }  
+          
+        /* =====================================  
+           التواصل  
+        ===================================== */  
+        .social-links {  
+            display: flex;  
+            justify-content: center;  
+            flex-wrap: wrap;  
+            gap: 12px;  
+        }  
+          
+        .social-links a {  
+            text-decoration: none;  
+            color: white;  
+            border: 1px solid #d4af37;  
+            padding: 12px 22px;  
+            border-radius: 30px;  
+            transition: 0.3s;  
+        }  
+          
+        .social-links a:hover {  
+            background: #d4af37;  
+            color: black;  
+            transform: translateY(-4px);  
+        }  
+          
+        .call-btn {  
+            background: #d4af37 !important;  
+            color: #000 !important;  
+            font-weight: bold;  
+        }  
+          
+        /* =====================================  
+           الفوتر  
+        ===================================== */  
+        footer {  
+            text-align: center;  
+            padding: 30px;  
+            background: #030303;  
+            border-top: 1px solid #222;  
+            color: #888;  
+        }  
+          
+        footer span {  
+            color: #d4af37;  
+        }  
+          
+        /* =====================================  
+           الحركات  
+        ===================================== */  
+        @keyframes introAppear {  
+            from {  
+                opacity: 0;  
+                transform: scale(0.8);  
+            }  
+            to {  
+                opacity: 1;  
+                transform: scale(1);  
+            }  
+        }  
+          
+        @keyframes pageAppear {  
+            from {  
+                opacity: 0;  
+            }  
+            to {  
+                opacity: 1;  
+            }  
+        }  
+          
+        /* =====================================  
+           التجاوب مع الهواتف  
+        ===================================== */  
+        @media (max-width: 600px) {  
+            body { background: #050505; }  
+            .navbar { height: 64px; padding: 0 15px; }  
+            .nav-logo { font-size: 14px; }  
+            .pages-btn { padding: 8px 14px; font-size: 13px; }  
+            .pages-menu { top: 64px; width: 270px; padding: 12px; }  
+            .intro-content { width: 95%; padding: 20px; }  
+            .logo-circle { width: 120px; height: 120px; font-size: 48px; margin-bottom: 20px; }  
+            .intro-content h1 { font-size: 28px; line-height: 1.4; }  
+            .intro-content h2 { font-size: 16px; line-height: 1.8; }  
+            .start-btn { width: 80%; padding: 14px 20px; }  
+            .hero { min-height: 100svh; padding: 100px 20px 50px; }  
+            .hero h1 { font-size: 30px; line-height: 1.4; }  
+            .hero h2 { font-size: 19px; line-height: 1.8; }  
+            .hero p { font-size: 16px; line-height: 2; }  
+            .hero-btn { width: 100%; max-width: 330px; padding: 15px 20px; }  
+            .content-section { padding: 70px 18px; }  
+            .section-title { font-size: 28px; }  
+            .profile-img-box { width: 170px; height: 170px; }
+            .about-text { font-size: 16px; line-height: 2.1; }  
+            .services { grid-template-columns: 1fr; gap: 16px; }  
+            .card { padding: 25px 20px; border-radius: 16px; }  
+            .card .icon { font-size: 38px; }  
+            .location-box { padding: 22px 18px; }  
+            .location-box p { font-size: 15px; line-height: 2; }  
+            .map-btn { width: 100%; padding: 14px 15px; }  
+            .social-links { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }  
+            .social-links a { padding: 12px 8px; font-size: 14px; }  
+            .contact-form input, .contact-form textarea { font-size: 15px; padding: 15px; }  
+            .submit-btn { width: 100%; }  
+            footer { font-size: 13px; padding: 25px 15px; }  
+        }  
+    </style>
 </head>
 
-
 <body>
+    <!-- الصفحة الافتتاحية -->
+    <div id="intro">
+        <div class="intro-content">
+            <div class="logo-circle">⚖</div>
+            <h1>Hadeer Legal Group</h1>
+            <h2>مكتب هدير الشوا للمحاماة والاستشارات القانونية</h2>
+            <button class="start-btn" onclick="startWebsite()">ابدأ</button>
+        </div>
+    </div>
 
+    <!-- الموقع الرئيسي -->
+    <div id="mainPage">
+        <!-- شريط الموقع -->
+        <nav class="navbar">
+            <div class="nav-logo">Hadeer Legal Group</div>
+            <button class="pages-btn" onclick="toggleMenu()">☰ الصفحات</button>
+        </nav>
 
-<!-- =====================================
-     الصفحة الافتتاحية
-===================================== -->
-
-<div id="intro">
-
-    <div class="intro-content">
-
-        <div class="logo-circle">
-            ⚖
+        <!-- قائمة الصفحات -->
+        <div id="pagesMenu" class="pages-menu">
+            <a href="#home" onclick="closeMenu()">🏠 الرئيسية</a>
+            <a href="#about" onclick="closeMenu()">⚖️ من نحن</a>
+            <a href="#services" onclick="closeMenu()">📋 خدماتنا</a>
+            <a href="#consultation" onclick="closeMenu()">📝 احجز استشارة</a>
+            <a href="#location" onclick="closeMenu()">📍 موقع المكتب</a>
+            <a href="#contact" onclick="closeMenu()">📞 تواصل معنا</a>
         </div>
 
-        <h1>
-            Hadeer Legal Group
-        </h1>
-
-        <h2>
-            مكتب هدير الشوا للمحاماة
-            والاستشارات القانونية
-        </h2>
-
-        <button
-        class="start-btn"
-        onclick="startWebsite()">
-
-            ابدأ
-
-        </button>
-
-    </div>
-
-</div>
-
-
-<!-- =====================================
-     الموقع الرئيسي
-===================================== -->
-
-<div id="mainPage">
-
-
-<!-- =====================================
-     شريط الموقع
-===================================== -->
-
-<nav class="navbar">
-
-    <div class="nav-logo">
-        Hadeer Legal Group
-    </div>
-
-    <button
-    class="pages-btn"
-    onclick="toggleMenu()">
-
-        ☰ الصفحات
-
-    </button>
-
-</nav>
-
-
-<!-- =====================================
-     قائمة الصفحات
-===================================== -->
-
-<div
-id="pagesMenu"
-class="pages-menu">
-
-    <a
-    href="#home"
-    onclick="closeMenu()">
-
-        🏠 الرئيسية
-
-    </a>
-
-    <a
-    href="#about"
-    onclick="closeMenu()">
-
-        ⚖️ من نحن
-
-    </a>
-
-    <a
-    href="#services"
-    onclick="closeMenu()">
-
-        📋 خدماتنا
-
-    </a>
-
-    <a
-    href="#consultation"
-    onclick="closeMenu()">
-
-        📝 احجز استشارة
-
-    </a>
-
-    <a
-    href="#location"
-    onclick="closeMenu()">
-
-        📍 موقع المكتب
-
-    </a>
-
-    <a
-    href="#contact"
-    onclick="closeMenu()">
-
-        📞 تواصل معنا
-
-    </a>
-
-</div>
-
-
-<!-- =====================================
-     الرئيسية
-===================================== -->
-
-<section
-id="home"
-class="hero">
-
-    <div class="hero-content">
-
-        <h1>
-            Hadeer Legal Group
-        </h1>
-
-        <h2>
-            مكتب هدير الشوا للمحاماة
-            والاستشارات القانونية
-        </h2>
-
-        <p>
-            نقدم خدمات المحاماة والاستشارات
-            القانونية باحترافية واهتمام،
-            ونسعى إلى تقديم الحلول القانونية
-            المناسبة لعملائنا.
-        </p>
-
-        <a
-        href="#consultation"
-        class="hero-btn">
-
-            احجز استشارتك الآن
-
-        </a>
-
-    </div>
-
-</section>
-
-
-<!-- =====================================
-     من نحن
-===================================== -->
-
-<section
-id="about"
-class="content-section">
-
-    <h2 class="section-title">
-
-        من نحن
-
-    </h2>
-
-    <p class="about-text">
-
-        مكتب هدير الشوا للمحاماة
-        والاستشارات القانونية يقدم خدمات
-        قانونية واستشارات متخصصة،
-        مع الحرص على تقديم خدمة احترافية
-        ومتابعة احتياجات العملاء.
-
-    </p>
-
-</section>
-
-
-<!-- =====================================
-     الخدمات
-===================================== -->
-
-<section
-id="services"
-class="content-section">
-
-    <h2 class="section-title">
-
-        خدماتنا
-
-    </h2>
-
-
-    <div class="services">
-
-
-        <div class="card">
-
-            <div class="icon">
-                ⚖️
+        <!-- الرئيسية -->
+        <section id="home" class="hero">
+            <div class="hero-content">
+                <h1>Hadeer Legal Group</h1>
+                <h2>مكتب هدير الشوا للمحاماة والاستشارات القانونية</h2>
+                <p>نقدم خدمات المحاماة والاستشارات القانونية باحترافية واهتمام، ونسعى إلى تقديم الحلول القانونية المناسبة لعملائنا.</p>
+                <a href="#consultation" class="hero-btn">احجز استشارتك الآن</a>
             </div>
+        </section>
 
-            <h3>
-                الاستشارات القانونية
-            </h3>
-
-            <p>
-                تقديم الاستشارات القانونية
-                ومساعدة العملاء في فهم
-                الإجراءات والحلول القانونية.
-            </p>
-
-        </div>
-
-
-        <div class="card">
-
-            <div class="icon">
-                📄
+        <!-- من نحن -->
+        <section id="about" class="content-section">
+            <h2 class="section-title">من نحن</h2>
+            <div class="about-profile">
+                <div class="profile-img-box">
+                    <img src="hadeer-elshaw-legal-group.jpg" alt="الأستاذة هدير الشوا">
+                </div>
+                <p class="about-text">
+                    مكتب هدير الشوا للمحاماة والاستشارات القانونية يقدم خدمات قانونية واستشارات متخصصة، 
+                    مع الحرص على تقديم خدمة احترافية ومتابعة دقيقة لاحتياجات العملاء لضمان أفضل الحلول والنتائج.
+                </p>
             </div>
+        </section>
 
-            <h3>
-                صياغة العقود
-            </h3>
-
-            <p>
-                المساعدة في إعداد وصياغة
-                العقود والمستندات القانونية.
-            </p>
-
-        </div>
-
-
-        <div class="card">
-
-            <div class="icon">
-                👨‍⚖️
+        <!-- الخدمات -->
+        <section id="services" class="content-section">
+            <h2 class="section-title">خدماتنا</h2>
+            <div class="services">
+                <div class="card">
+                    <div class="icon">⚖️</div>
+                    <h3>الاستشارات القانونية</h3>
+                    <p>تقديم الاستشارات القانونية ومساعدة العملاء في فهم الإجراءات والحلول القانونية.</p>
+                </div>
+                <div class="card">
+                    <div class="icon">📄</div>
+                    <h3>صياغة العقود</h3>
+                    <p>المساعدة في إعداد وصياغة العقود والمستندات القانونية بأسلوب احترافي يحمي حقوقك.</p>
+                </div>
+                <div class="card">
+                    <div class="icon">👨‍⚖️</div>
+                    <h3>القضايا</h3>
+                    <p>متابعة القضايا والإجراءات القانونية أمام المحاكم وفقًا لطبيعة كل حالة.</p>
+                </div>
+                <div class="card">
+                    <div class="icon">🏛️</div>
+                    <h3>الخدمات القانونية</h3>
+                    <p>تقديم خدمات قانونية متنوعة وشاملة تتناسب مع احتياجات ومشاريع العملاء.</p>
+                </div>
             </div>
+        </section>
 
-            <h3>
-                القضايا
-            </h3>
+        <!-- حجز الاستشارة -->
+        <section id="consultation" class="content-section">
+            <h2 class="section-title">احجز استشارة</h2>
+            <form class="contact-form" onsubmit="sendForm(event)">
+                <input type="text" id="name" placeholder="الاسم بالكامل" required>
+                <input type="tel" id="phone" placeholder="رقم الهاتف" required>
+                <textarea id="message" placeholder="اكتب تفاصيل الاستشارة هنا..." required></textarea>
+                <button class="submit-btn" type="submit">إرسال طلب الاستشارة عبر الواتساب</button>
+            </form>
+        </section>
 
-            <p>
-                متابعة القضايا والإجراءات
-                القانونية وفقًا لطبيعة كل حالة.
-            </p>
-
-        </div>
-
-
-        <div class="card">
-
-            <div class="icon">
-                🏛️
+        <!-- موقع المكتب -->
+        <section id="location" class="content-section">
+            <h2 class="section-title">موقع المكتب</h2>
+            <div class="location-box">
+                <p>📍 <strong>العنوان:</strong> محافظة بورسعيد، شارع أوجينا، برج سلمى، الدور الثاني علوي، أمام بنك الدم، أعلى معمل سمارت لاب وسمارت سكان للأشعة، حي الشرق، بورسعيد، مصر.</p>
+                <p>📞 <strong>الهاتف:</strong> 01281131822</p>
+                <p>🕑 <strong>المواعيد:</strong> من الساعة 3 إلى 5 مساءً، ومن الساعة 8 إلى 11 مساءً.</p>
+                <a href="https://maps.app.goo.gl/iG2hWXr7WJktq2to8?g_st=ac" target="_blank" rel="noopener noreferrer" class="map-btn">📍 افتح موقع المكتب على الخريطة</a>
             </div>
+        </section>
 
-            <h3>
-                الخدمات القانونية
-            </h3>
+        <!-- التواصل -->
+        <section id="contact" class="content-section">
+            <h2 class="section-title">تواصل معنا</h2>
+            <div class="social-links">
+                <a href="tel:01281131822" class="call-btn">📞 اتصال مباشر</a>
+                <a href="https://wa.me/201281131822" target="_blank" rel="noopener noreferrer">WhatsApp</a>
+                <a href="https://www.facebook.com/share/1EFjETCJQc/" target="_blank" rel="noopener noreferrer">Facebook</a>
+                <a href="https://www.tiktok.com/@_._49317?_r=1&_t=ZS-98F2djBUU6x" target="_blank" rel="noopener noreferrer">TikTok</a>
+                <a href="#" onclick="alert('سيتم إضافة رابط Instagram قريبًا')">Instagram</a>
+            </div>
+        </section>
 
-            <p>
-                تقديم خدمات قانونية متنوعة
-                وفقًا لاحتياجات العملاء.
-            </p>
-
-        </div>
-
-
+        <!-- الفوتر -->
+        <footer>
+            جميع الحقوق محفوظة © <span>Hadeer Legal Group</span>
+        </footer>
     </div>
 
-</section>
-
-
-<!-- =====================================
-     حجز الاستشارة
-===================================== -->
-
-<section
-id="consultation"
-class="content-section">
-
-    <h2 class="section-title">
-
-        احجز استشارة
-
-    </h2>
-
-
-    <form
-    class="contact-form"
-    onsubmit="sendForm(event)">
-
-
-        <input
-        type="text"
-        id="name"
-        placeholder="الاسم بالكامل"
-        required>
-
-
-        <input
-        type="tel"
-        id="phone"
-        placeholder="رقم الهاتف"
-        required>
-
-
-        <textarea
-        id="message"
-        placeholder="اكتب تفاصيل الاستشارة هنا..."
-        required>
-        </textarea>
-
-
-        <button
-        class="submit-btn"
-        type="submit">
-
-            إرسال طلب الاستشارة
-
-        </button>
-
-
-    </form>
-
-</section>
-
-
-<!-- =====================================
-     موقع المكتب
-===================================== -->
-
-<section
-id="location"
-class="content-section">
-
-
-    <h2 class="section-title">
-
-        موقع المكتب
-
-    </h2>
-
-
-    <div class="location-box">
-
-
-        <p>
-
-            📍 العنوان:
-
-            محافظة بورسعيد،
-            شارع أوجينا،
-            برج سلمى،
-            الدور الثاني علوي،
-            أمام بنك الدم،
-            أعلى معمل سمارت لاب
-            وسمارت سكان للأشعة،
-            حي الشرق،
-            بورسعيد، مصر.
-
-        </p>
-
-
-        <p>
-
-            📞 الهاتف:
-
-            01281131822
-
-        </p>
-
-
-        <p>
-
-            🕑 المواعيد:
-
-            من الساعة 3 إلى الساعة 5 مساءً،
-
-            ومن الساعة 8 إلى الساعة 11 مساءً.
-
-        </p>
-
-
-        <a
-        href="https://maps.app.goo.gl/iG2hWXr7WJktq2to8?g_st=ac"
-        target="_blank"
-        rel="noopener noreferrer"
-        class="map-btn">
-
-            📍 موقع المكتب 
-
-        </a>
-
-
-    </div>
-
-</section>
-
-
-<!-- =====================================
-     التواصل
-===================================== -->
-
-<section
-id="contact"
-class="content-section">
-
-
-    <h2 class="section-title">
-
-        تواصل معنا
-
-    </h2>
-
-
-    <div class="social-links">
-
-
-        <a
-        href="https://www.facebook.com/share/1EFjETCJQc/"
-        target="_blank"
-        rel="noopener noreferrer">
-
-            Facebook
-
-        </a>
-
-
-        <a
-        href="#"
-        onclick="alert('سيتم إضافة رابط Instagram قريبًا')">
-
-            Instagram
-
-        </a>
-
-
-        <a
-        href="https://www.tiktok.com/@_._49317?_r=1&_t=ZS-98F2djBUU6x"
-        target="_blank"
-        rel="noopener noreferrer">
-
-            TikTok
-
-        </a>
-
-
-        <a
-        href="https://wa.me/201281131822"
-        target="_blank"
-        rel="noopener noreferrer">
-
-            WhatsApp
-
-        </a>
-
-
-    
-
-
-    </div>
-
-</section>
-
-
-<!-- =====================================
-     الفوتر
-===================================== -->
-
-<footer>
-
-    جميع6 الحقوق محفوظة ©
-
-    <span>
-
-        Hadeer Legal Group
-
-    </span>
-
-</footer>
-
-
-</div>
-
-
-<script>
-
-/* =====================================
-   زر ابدأ
-===================================== */
-
-function startWebsite() {
-
-    const intro =
-    document.getElementById("intro");
-
-    const mainPage =
-    document.getElementById("mainPage");
-
-
-    intro.style.opacity = "0";
-
-
-    setTimeout(function() {
-
-        intro.style.display =
-        "none";
-
-        mainPage.style.display =
-        "block";
-
-        window.scrollTo(0,0);
-
-    },1000);
-
-}
-
-
-/* =====================================
-   فتح القائمة
-===================================== */
-
-function toggleMenu() {
-
-    document
-    .getElementById("pagesMenu")
-    .classList
-    .toggle("active");
-
-}
-
-
-/* =====================================
-   إغلاق القائمة
-===================================== */
-
-function closeMenu() {
-
-    document
-    .getElementById("pagesMenu")
-    .classList
-    .remove("active");
-
-}
-
-
-/* =====================================
-   إرسال الاستشارة إلى واتساب
-===================================== */
-
-function sendForm(event) {
-
-    event.preventDefault();
-
-
-    let whatsappNumber =
-    "201281131822";
-
-
-    let name =
-    document
-    .getElementById("name")
-    .value
-    .trim();
-
-
-    let phone =
-    document
-    .getElementById("phone")
-    .value
-    .trim();
-
-
-    let message =
-    document
-    .getElementById("message")
-    .value
-    .trim();
-
-
-    let whatsappMessage =
-
-    "📋 طلب استشارة قانونية\n\n" +
-
-    "👤 الاسم: " +
-    name +
-
-    "\n📞 رقم الهاتف: " +
-    phone +
-
-    "\n📝 تفاصيل الاستشارة: " +
-    message;
-
-
-    let whatsappURL =
-
-    "https://wa.me/" +
-
-    whatsappNumber +
-
-    "?text=" +
-
-    encodeURIComponent(
-        whatsappMessage
-    );
-
-
-    window.open(
-        whatsappURL,
-        "_blank"
-    );
-
-}
-
-</script>
-
-
+    <!-- السكريبتات -->
+    <script>
+        function startWebsite() {  
+            const intro = document.getElementById("intro");  
+            const mainPage = document.getElementById("mainPage");  
+            intro.style.opacity = "0";  
+            setTimeout(function() {  
+                intro.style.display = "none";  
+                mainPage.style.display = "block";  
+                window.scrollTo(0,0);  
+            }, 1000);  
+        }  
+          
+        function toggleMenu() {  
+            document.getElementById("pagesMenu").classList.toggle("active");  
+        }  
+          
+        function closeMenu() {  
+            document.getElementById("pagesMenu").classList.remove("active");  
+        }  
+          
+        function sendForm(event) {  
+            event.preventDefault();  
+            let whatsappNumber = "201281131822";  
+            let name = document.getElementById("name").value.trim();  
+            let phone = document.getElementById("phone").value.trim();  
+            let message = document.getElementById("message").value.trim();  
+            
+            let whatsappMessage = "📋 طلب استشارة قانونية\n\n" +  
+                "👤 الاسم: " + name + "\n" +
+                "📞 رقم الهاتف: " + phone + "\n" +
+                "📝 تفاصيل الاستشارة: " + message;  
+          
+            let whatsappURL = "https://wa.me/" + whatsappNumber + "?text=" + encodeURIComponent(whatsappMessage);  
+            window.open(whatsappURL, "_blank");  
+        }  
+    </script>
 </body>
+</html>
 
-</html>>
